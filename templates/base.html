@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <form action='/articles/' method='GET'>  <!-- GET is default -->
+      <input type = 'text' name='q'/>
+      <input type = 'submit' />
+    </form>
+    {% block content %}
+    {% endblock content %}
+    
+  </body>
+</html>
