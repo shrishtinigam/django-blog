@@ -26,6 +26,7 @@ def article_search_view(request):
         query = None
 
     article_obj = None
+    # Make this search better
     if query is not None:
         article_obj = Article.objects.get(id=query)
     context = {

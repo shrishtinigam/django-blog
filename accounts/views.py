@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # Create your views here.
 def login_view(request):
+    # future -> ?next=/articles/create/
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -38,7 +39,7 @@ def login_view(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is None:
-            context = {'error': 'Invalid username or password'}
+            context = {'error': 'Invalid username or password.'}
             return render(request, 'accounts/login.html', context)
         login(request, user)
         return redirect('/')

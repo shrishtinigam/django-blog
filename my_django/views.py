@@ -13,18 +13,18 @@ def home_view(request, *args, **kwargs):
     """
     # Django templates
 
-    n = random.randint(1,6)
+    n = random.randint(1,20)
     article_obj = Article.objects.get(id=n)
     # We can add an API call to some rest API with python and python requests
     
-    article_qs = Article.objects.all()
+    article_qs = Article.objects.all() # qs is query set
 
     context = {
         "object_list": article_qs,
         "title": article_obj.title,
         "id": article_obj.id,
         "content": article_obj.content,
-        "name": "Meher"
+        "name": "Meher" # Replace with user's name
     }
     HTML_STRING = render_to_string("home-view.html",context=context)
     return HttpResponse(HTML_STRING)
